@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Horse Challenge</title>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="design.css">
+</head>
+<body>
+	<h1>Horse Challenge</h1>
+	<div class="panel">
+		<span class="indicators"> Time:
+			<span id = "min">00</span>:<span id = "sec">00</span>
+		</span>
+		<span class="indicators">Moves:
+			<span id="moves">64</span>
+		</span>
+		<span class="indicators">Lifes:
+			<span id="lifes">1</span>
+		</span>
+		<span class="indicators">Options:
+			<span id="optind" class="opt">0</span> + <span id="bonusind">0</span>
+		</span>
+	</div>
+	<div class = "board">
+		<div class="row">
+			<span id="c00" class="cell bianco" onclick="visitCell(0, 0)"></span>
+			<span id="c01" class="cell   nero" onclick="visitCell(0, 1)"></span>
+			<span id="c02" class="cell bianco" onclick="visitCell(0, 2)"></span>
+			<span id="c03" class="cell   nero" onclick="visitCell(0, 3)"></span>
+			<span id="c04" class="cell bianco" onclick="visitCell(0, 4)"></span>
+			<span id="c05" class="cell   nero" onclick="visitCell(0, 5)"></span>
+			<span id="c06" class="cell bianco" onclick="visitCell(0, 6)"></span>
+			<span id="c07" class="cell   nero" onclick="visitCell(0, 7)"></span>
+		</div>
+		<div class="row">
+			<div id="c10" class="cell   nero" onclick="visitCell(1, 0)"></div>
+			<div id="c11" class="cell bianco" onclick="visitCell(1, 1)"></div>
+			<div id="c12" class="cell   nero" onclick="visitCell(1, 2)"></div>
+			<div id="c13" class="cell bianco" onclick="visitCell(1, 3)"></div>
+			<div id="c14" class="cell   nero" onclick="visitCell(1, 4)"></div>
+			<div id="c15" class="cell bianco" onclick="visitCell(1, 5)"></div>
+			<div id="c16" class="cell   nero" onclick="visitCell(1, 6)"></div>
+			<div id="c17" class="cell bianco" onclick="visitCell(1, 7)"></div>
+		</div>
+		<div class="row">
+			<div id="c20" class="cell bianco" onclick="visitCell(2, 0)"></div>
+			<div id="c21" class="cell   nero" onclick="visitCell(2, 1)"></div>
+			<div id="c22" class="cell bianco" onclick="visitCell(2, 2)"></div>
+			<div id="c23" class="cell   nero" onclick="visitCell(2, 3)"></div>
+			<div id="c24" class="cell bianco" onclick="visitCell(2, 4)"></div>
+			<div id="c25" class="cell   nero" onclick="visitCell(2, 5)"></div>
+			<div id="c26" class="cell bianco" onclick="visitCell(2, 6)"></div>
+			<div id="c27" class="cell   nero" onclick="visitCell(2, 7)"></div>
+		</div>
+		<div class="row">
+			<div id="c30" class="cell   nero" onclick="visitCell(3, 0)"></div>
+			<div id="c31" class="cell bianco" onclick="visitCell(3, 1)"></div>
+			<div id="c32" class="cell   nero" onclick="visitCell(3, 2)"></div>
+			<div id="c33" class="cell bianco" onclick="visitCell(3, 3)"></div>
+			<div id="c34" class="cell   nero" onclick="visitCell(3, 4)"></div>
+			<div id="c35" class="cell bianco" onclick="visitCell(3, 5)"></div>
+			<div id="c36" class="cell   nero" onclick="visitCell(3, 6)"></div>
+			<div id="c37" class="cell bianco" onclick="visitCell(3, 7)"></div>
+		</div>
+		<div class="row">
+			<div id="c40" class="cell bianco" onclick="visitCell(4, 0)"></div>
+			<div id="c41" class="cell   nero" onclick="visitCell(4, 1)"></div>
+			<div id="c42" class="cell bianco" onclick="visitCell(4, 2)"></div>
+			<div id="c43" class="cell   nero" onclick="visitCell(4, 3)"></div>
+			<div id="c44" class="cell bianco" onclick="visitCell(4, 4)"></div>
+			<div id="c45" class="cell   nero" onclick="visitCell(4, 5)"></div>
+			<div id="c46" class="cell bianco" onclick="visitCell(4, 6)"></div>
+			<div id="c47" class="cell   nero" onclick="visitCell(4, 7)"></div>
+		</div>
+		<div class="row">
+			<span id="c50" class="cell   nero" onclick="visitCell(5, 0)"></span>
+			<span id="c51" class="cell bianco" onclick="visitCell(5, 1)"></span>
+			<span id="c52" class="cell   nero" onclick="visitCell(5, 2)"></span>
+			<span id="c53" class="cell bianco" onclick="visitCell(5, 3)"></span>
+			<span id="c54" class="cell   nero" onclick="visitCell(5, 4)"></span>
+			<span id="c55" class="cell bianco" onclick="visitCell(5, 5)"></span>
+			<span id="c56" class="cell   nero" onclick="visitCell(5, 6)"></span>
+			<span id="c57" class="cell bianco" onclick="visitCell(5, 7)"></span>
+		</div>
+		<div class="row">
+			<div id="c60" class="cell bianco" onclick="visitCell(6, 0)"></div>
+			<div id="c61" class="cell   nero" onclick="visitCell(6, 1)"></div>
+			<div id="c62" class="cell bianco" onclick="visitCell(6, 2)"></div>
+			<div id="c63" class="cell   nero" onclick="visitCell(6, 3)"></div>
+			<div id="c64" class="cell bianco" onclick="visitCell(6, 4)"></div>
+			<div id="c65" class="cell   nero" onclick="visitCell(6, 5)"></div>
+			<div id="c66" class="cell bianco" onclick="visitCell(6, 6)"></div>
+			<div id="c67" class="cell   nero" onclick="visitCell(6, 7)"></div>
+		</div>
+		<div class="row">
+			<div id="c70" class="cell   nero" onclick="visitCell(7, 0)"></div>
+			<div id="c71" class="cell bianco" onclick="visitCell(7, 1)"></div>
+			<div id="c72" class="cell   nero" onclick="visitCell(7, 2)"></div>
+			<div id="c73" class="cell bianco" onclick="visitCell(7, 3)"></div>
+			<div id="c74" class="cell   nero" onclick="visitCell(7, 4)"></div>
+			<div id="c75" class="cell bianco" onclick="visitCell(7, 5)"></div>
+			<div id="c76" class="cell   nero" onclick="visitCell(7, 6)"></div>
+			<div id="c77" class="cell bianco" onclick="visitCell(7, 7)"></div>
+		</div>
+	</div>
+
+	<div id="message">
+		<p id="notification">Hola</p>
+		<p id="data_message">Mensaje</p>
+		<div id="share_panel" class="share">
+		    <p id="button" onclick="hide_message(true)"></p> 
+			<div id="tweet_game">
+				<div id="tweet_center">
+					<div id="tweet_gameover"></div>
+				</div>
+		    </div> 
+	    </div>	    
+	</div>
+
+	<SCRIPT TYPE="text/javascript" src="timemgr.js"></SCRIPT>
+	<SCRIPT TYPE="text/javascript" src="autoplay.js"></SCRIPT>
+
+</body>
+</html>
