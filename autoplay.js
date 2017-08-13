@@ -1,17 +1,4 @@
-var board, lastX, lastY, bonus = 0, moves = 63;
-var nbOfMovesForBonus = 4;
-var nbOptions = 0;
-
-function createBoard () {
-	board = new Array(8);
-	for (var i = 0; i < board.length; i++) {
-		board[i] = new Array(8);
-		for (var j = 0; j < board[i].length; j++) {
-			board[i][j] = 0;
-		};
-	};
-}
-
+var nbOptions = 0, lastX, lastY, bonus = 0;
 
 
 function isVisited (x, y) {
@@ -59,15 +46,37 @@ function checkBonus () {
 	};
 }
 
-function checkWin (argument) {
+function showMessage(title, msg) {		
+	document.getElementById("message").style.display = "block";
+	document.getElementById("notification").innerHTML = title;
+	document.getElementById("data_message").innerHTML = msg + document.getElementById("min").innerHTML + ":" + document.getElementById("sec").innerHTML;
+	setTimeOut(2000, newGame);
+}
+
+function newGame() {
+	resetTime();
+
 	if (moves == 0) {
-		alert("You won!");
+		level++;
+	} else if (lifes == 0) {
+		level = 1;
+		lifes = 0;
+	}
+	paintLevel();
+}
+
+function checkWin () {
+	if (moves == 0) {
+		showMessage("You won!", "Congrats");
+		
 	};
 }
 
 function checkGameOver (nbOfOptions) {
 	if (nbOfOptions == 0 && bonus == 0) {
-		alert("Game over!");
+		showMessage("Game over", "Keep trying");
+		resetTime();	
+		newGame(0);
 	};
 }
 
@@ -158,13 +167,16 @@ function selectCell (x, y) {
 	setOptions(x, y);	
 }
 
-
-
-
 function initBoard () {
-	lastX = Math.floor((Math.random() * 8));
-	lastY = Math.floor((Math.random() * 8));
-	selectCell(lastX, lastY);
+	var f = false;
+	while (!f) {
+		lastX = Math.floor((Math.random() * 8));
+		lastY = Math.floor((Math.random() * 8));
+		if (!isVisited(lastX, lastY)) {
+			f = true;
+			selectCell(lastX, lastY);
+		}
+	}	
 }
 
 function visitCell(x, y) {
@@ -173,8 +185,16 @@ function visitCell(x, y) {
 	};
 }
 
+function paintIndicators() {
+	document.getElementById("lifes").innerHTML = level;
+}
+
 function play () {
 	createBoard();
+	initVals();
+	paintIndicators();
+	paintLevel();
+
 	initBoard();
 
 	resetTime();
